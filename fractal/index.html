@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>CGSG:VG4 CGSG'SummerPractice. G.Julia Drawing</title>
+  </head>
+  <body>
+    <style>
+    input
+    {
+      zoom: 1.8;
+    }
+    div#ctrl span
+    {
+      color: Blue;
+      width: 13em;
+      font-weight: Bold;
+      font-family: Consolas;
+      left: 300px;
+    }
+    td:nth-of-type(5)
+    {
+      text-align: Right;
+      width: 3.5em;
+    }
+    #fpsd
+    {
+      padding: 8px;
+      margin: 2px;
+      display: inline;
+      border: 3px Solid Brown;
+      border-radius: 12px;
+    }
+    #fps
+    {
+      display: inline;
+      width: 8em;
+    }
+    </style>
+    <div id='ctrl' style="font-size: 2em">
+      <br /><input id='pause' type="checkbox" value="" /> Pause
+      <div id='fpsd'>FPS: <div id="fps">30.0</div></div>
+      <br />Julia
+      <table>
+        <tr>
+          <td>C.x.B:</td><td><span id="CxB">0.35</span></td><td><input id="sl_CxB" type="range" min="8" max="180" value="35" class="slider" /></td>
+          <td>C.x.S:</td><td><span id="CxS">0.00</span></td><td><input id="sl_CxS" type="range" min="0" max="100" value="0" class="slider" /></td>
+        </tr>
+        <tr>
+          <td>C.y.B:</td><td><span id="CyB">0.35</span></td><td><input id="sl_CyB" type="range" min="8" max="180" value="35" class="slider" /></td>
+          <td>C.y.S:</td><td><span id="CyS">0.00</span></td><td><input id="sl_CyS" type="range" min="0" max="100" value="0" class="slider" /></td>
+        </tr>
+        <tr>
+          <td>S.h.h:</td><td><span id="Sh">0.00</span></td><td><input id="sl_Sh" type="range" min="0" max="500" value="0" class="slider" /></td>
+          <td>R.o.t:</td><td><span id="Rot">0.00</span></td><td><input id="sl_Rot" type="range" min="0" max="18000" value="0" class="slider" /></td>
+        </tr>
+        <tr>
+          <td>S.c.l:</td><td><span id="Scl">1.00</span></td><td><input id="sl_Scl" type="range" min="47" max="800" value="100" class="slider" /></td>
+          <td>Color:</td><td colspan="2"><input style="width: 100%;" id="sl_Col" type="color" value="#FF0000" /></td>
+        </tr>
+      </table>
+      <input id='reset' type="button" checked value="Reset" />
+    </div>
+    <canvas id="myCan" width="1002px" height="1002px" style="border: 1px Solid Red"></canvas>
+    <script type="module">
+      import * as vigl from "./mylib.js";
+
+      window.addEventListener("load", () => {
+        document.body.onkeydown = function (e) {
+          if (e.code == "ArrowUp") document.bgColor = "#AADDFF";
+          if (e.code == "ArrowDown") document.bgColor = "#AAFFDD";
+        };
+
+        document.querySelector('#pause').addEventListener('click', vigl.myPause);
+        document.querySelectorAll('.slider').forEach((tag) =>  tag.addEventListener('input', vigl.mySlider));
+        document.querySelector('#sl_Col').addEventListener('input', vigl.myColor);
+        document.querySelector('#reset').addEventListener('click', vigl.myReset);
+        document.querySelector('#myCan').addEventListener('mousemove', vigl.myDragHandle);
+        document.querySelector('#myCan').addEventListener('mousewheel', vigl.myWheelHandle);
+        //  () => {
+        //    vigl.myPause(this);
+        //  });
+
+        vigl.initGL();
+        const draw = () => {
+          vigl.Render();
+          window.requestAnimationFrame(draw);
+        };
+        draw();
+        /*
+        window.setInterval(() => {
+          Render();
+        }, 1);
+        */
+      });
+    </script>
+  </body>
+</html>

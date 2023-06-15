@@ -1,0 +1,123 @@
+body
+{
+  background-color: #EEFFCC;
+}
+h2
+{
+  color: Brown;
+}
+.box
+{
+  border: 1px Red Solid;
+  border-radius: 18px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+  vertical-align: top;
+  background-color: #CCEEFF;
+  min-width: 8em;
+  min-height: 1em;
+}
+.box textarea
+{
+  font-size: 1.5em;
+  overflow: scroll;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.box textarea.hidden
+{
+  display: none;
+}
+.slider
+{
+  vertical-align: middle;
+}
+#kbdimg
+{
+  background-size: 100% 100%;
+  background-image: url(images/kbd/kbd_ctrl_right.png), url(images/kbd/kbd.png);
+}
+#inputTab td
+{
+  width: 90px;
+  color: Red;
+  text-align: left;
+  font-weight: Bold;
+  white-space: nowrap;
+}
+/*
+input[type="color" i]:before
+{
+  content: "Back:";
+  display: inline-block;
+}
+*/
+button
+{
+  vertical-align: middle;
+}
+input[type="color" i]
+{
+  background-color: transparent;
+  vertical-align: middle;
+  cursor: default;
+  border: 0px black solid;
+  border-image: initial;
+  padding: 0px;
+  margin: 0px;
+  
+}
+.key
+{
+  display: inline;
+  background-color: buttonface;
+  line-height: 1.5em;
+  padding: 1px 5px 1px 5px;
+  margin: 2px;
+  border-radius: 5px;
+  font-weight: bold;
+  border: 1px solid gray;
+}
+.mouse
+{
+  vertical-align: middle;
+  font-size: 1.2em !important;
+}
+kbd
+{
+  vertical-align: middle;
+  background-color: #eee;
+  border-radius: 3px;
+  border: 1px solid #b4b4b4;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+  color: #333;
+  display: inline-block;
+  font-size: .85em;
+  font-weight: bold;
+  line-height: 1;
+  padding: 2px 4px;
+  white-space: nowrap;
+}
+.skyimg
+{
+  display: inline;
+  vertical-align: top;
+  position: relative;
+  float: right;
+  border: 1px Red Solid;
+  width: 90px;
+  height: 90px;
+  margin: 3px;
+}
+#log
+{
+  min-width: 300px;
+  min-height: 102px;
+  width: 300px;
+  height: 102px;
+  overflow: scroll;
+  background-color: black;
+  color: white;
+  font-size: 0.8em;
+}

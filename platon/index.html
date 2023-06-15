@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html translate="no">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="google" content="notranslate">
+    <title>OP5 forever!!! CGSG:VG4 CGSG'SummerPractice. Platon bodies</title>
+    <link href="main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  </head>
+  <body>
+    <h3>Platon's bodies</h3>
+    <!-- <h2>OP5 forever!!!</h2> -->
+    <div class="box">
+      <span class="material-symbols-outlined mouse">play_pause</span><input id='pause' type="checkbox" onClick="vg.timer.isPause = event.target.checked ? true : false;" /> Pause
+      <select id="SkyBox">
+      </select>    
+      <div class="skyimg"><img id="SkyBoxImg" /></div>
+      <br /><span class="material-symbols-outlined mouse">arrow_upward</span><input id='normals' type="checkbox" onClick="vg.frameData.flags[0] = event.target.checked ? true : false;" /> Normals
+      <input id='skyes' type="checkbox" checked onClick="vg.frameData.flags[1] = event.target.checked ? true : false;" /> Sky
+      <br /><span class="material-symbols-outlined mouse">settings_backup_restore</span><button id='' onClick="vg.cam.set(vg.vec3(12, 5, 8), vg.vec3(0, 0.30, 0), vg.vec3(0, 1, 0));"><b>Reset view</b></button>
+      <br /><span class="material-symbols-outlined">palette</span>Back color: <input type="color" value="#4A78CC" onInput="let e = event; {let h = e.target.value, r = eval('0x' + h[1] + h[2]), g = eval('0x' + h[3] + h[4]), b = eval('0x' + h[5] + h[6]); gl.clearColor(r / 255.0, g / 255.0, b / 255.0, 1.0);}" />
+      <br /><span class="material-symbols-outlined mouse">table_lamp</span><button id='addlight' onClick="" disabled><b>Add light source</b></button>
+      <br /><span class="material-symbols-outlined mouse">attach_file</span><button id='addCar' onClick=""><b>Add G3DM car to draw</b></button>
+      <br />Rotation: <input id="sl_Rot" type="range" min="-90" max="90" step="0.1" value="0" class="slider" /><div style="display: inline-block; width: 3em; text-align: right;"><b id="Rot">0.00</b></div>
+      <br />Use: <kbd>&larr;</kbd>, <kbd>&uarr;</kbd>, <kbd>&rarr;</kbd>, <kbd>&darr;</kbd>, <kbd>PgUp</kbd>/<kbd>PgDn</kbd>, <kbd><span class="material-symbols-outlined mouse">mouse</span>L/R</kbd>
+      <br /><kbd><span class="material-symbols-outlined mouse">mouse</span> wheel</kbd>, for speedup press:<kbd>shift</kbd>
+      <br /><div><b><span class="material-symbols-outlined mouse">30fps_select</span>FPS:</b> <div style="display: inline; font-weight: bold; color: Brown;" id='fps'>29.047</div></div>
+    </div>
+    <div class="box">
+      <div>Input info: <div  style="display: inline;" id='info'></div></div>
+      <div style="display: inline-table;">
+        <table id='inputTab'>
+          <tr>
+            <td><img id='msimg' src="images/ms/ms_0_0_0.png" height="90" style="vertical-align: middle;" /></td>
+          </tr>
+          <tr>
+            <td>X: <div style="font-size: 1.5em; display: inline;" id='inputX'>2</div></td>
+          </tr>
+          <tr>
+            <td>Y: <div style="font-size: 1.5em; display: inline;" id='inputY'>5</div></td>
+          </tr>
+        </table>
+      </div>
+      <div style="display: inline;"><img id='kbdimg' src="images/kbd/kbd_empty.png" height="178" style="vertical-align: middle;" /></div>
+      <div></div>
+    </div>
+    <div class="box">
+      Console <button onClick="document.getElementById('log').innerHTML = '';document.getElementById('log');">clear</button>
+      size: <button onClick="document.getElementById('log').style.fontSize = '0.2em';">sm</button>
+      <button onClick="document.getElementById('log').style.fontSize = '0.5em';">md</button>
+      <button onClick="document.getElementById('log').style.fontSize = '0.8em';">nr</button>
+      <button onClick="document.getElementById('log').style.fontSize = '1.2em';">lg</button>
+      <br /><textarea spellcheck="false" id='log'></textarea>
+    </div>
+    <div class="box">
+      <button onClick="document.getElementById('vert').classList.toggle('hidden')">Vertex</button>
+      <button id = 'vertUpdate'>Update</button>
+      <br /><textarea spellcheck="false" class='hidden' id="vert" cols="47" rows="18"></textarea>
+    </div>
+    <div class="box">
+      <button onClick="document.getElementById('frag').classList.toggle('hidden')">Fragment</button>
+      <button id = 'fragUpdate'>Update</button>
+      <br /><textarea spellcheck="false" class='hidden' id="frag" cols="47" rows="18"></textarea>
+    </div>
+    <canvas id="myCan" style="width: 100%; height: 75vh;" style="border: 1px Solid Red"></canvas>
+    <!-- Common styles/scripts -->
+    <style>
+    </style>
+    <script src="main.min.js"></script>
+  </body>
+</html>

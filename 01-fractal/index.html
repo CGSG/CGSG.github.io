@@ -6,23 +6,84 @@
     <link rel="shortcut icon" href="/images/favcgsg.png" type="image/png" />
     <title>CGSG:VG4 CGSG'SummerPractice2024. G.Julia Drawing</title>
     <style>
+      .fpsd, .fps, .pause {
+        display: inline-block;
+      }
+      .fps {
+        border: 1px solid blue;
+        border-radius: 5px;
+        padding: 2px;
+        background-color: #EEFFDD;
+      }
       .box {
         display: inline-block;
+        border: 1px dotted blue;
+      }
+      .group {
+        display: inline-block;
+        background-color: #EEFFDD;
+
+        border-radius: 5px;
+        padding: 8px; /* комментарии */
+        background-color: #DEF;
+        margin: 5px;
+        border-radius: 8px; font-size: 0.8em;
+        font-weight: bold;
+        border: 1px blue solid;
+        /*
+        min-width: 47px;
+        min-height: 30px;
+        background-image: url(https://www.gravatar.com/avatar/FEDA?size=47&default=retro);
+        background-repeat: no-repeat;
+        background-opacity: 0.30;
+        background-position: top right;
+        */
+        box-shadow: inset 10px 10px 30px rgba(0, 0, 0, 0.3),
+              inset 2px 2px 3px rgba(0,0,0,.5),
+              3px 3px 5px rgba(0, 0, 0, 0.4),
+              10px 10px 30px rgba(0, 0, 0, 0.5);
+
+      }
+      .number {
+        width: 47px;
+      }
+      body {
+        background-image: url(/images/cgsg_cardboard.png);
       }
     </style>
   </head>
   <body>
-    <a href="/">Site root</a><br />
+
     <p>Back color: <input id="backColor" type="color" value="#FFEEAA" /></p>
-    <div class="box">
-      <br />Rate: <input id="rate1" type="range" min="0.1" max="10.0" step="0.1" />
-      <br />FPS1: <div id="fps1">30</div>
-      <canvas id="myCan1" width="300px" height="300px" style="border: 2px solid red"></canvas>
-    </div>
-    <div class="box">
-      <br />Rate: <input id="rate2" type="range" min="0.1" max="10.0" step="0.1" />
-      <br />FPS2: <div id="fps2">30</div>
-      <canvas id="myCan2" width="300px" height="300px" style="border: 2px solid red"></canvas>
+    <p><button id="clone">Клонировать</button></p>
+    <div class="group">
+      <div id='ctrl' class="box" style="font-size: 1em">
+        <div class='fpsd'><input class='pause' type="checkbox" value="" /> Pause</div>
+        <div class='fpsd'>FPS: <div class="fps">30.0</div></div>
+        <br />Julia
+        <table>
+          <tr>
+            <!-- <td>C.x.B:</td><td><span name="CxB" class="CxB number">0.35</span></td><td><input name="sl_CxB" class="sl_CxB slider" type="range" min="8" max="180" value="35" /></td> -->
+            <td>C.x.B:</td><td><input name="CxB" class="CxB number" value="0.35" disabled /></td><td><input name="sl_CxB" class="sl_CxB slider" type="range" min="8" max="180" value="35" /></td>
+            <td>C.x.S:</td><td><input name="CxS" class="CxS number" value="0.00" disabled /></td><td><input name="sl_CxS" class="sl_CxS slider" type="range" min="0" max="100" value="0" /></td>
+          </tr>
+          <tr>
+            <td>C.y.B:</td><td><input name="CyB" class="CyB number" value="0.35" disabled /></td><td><input name="sl_CyB" class="sl_CyB slider" type="range" min="8" max="180" value="35" /></td>
+            <td>C.y.S:</td><td><input name="CyS" class="CyS number" value="0.00" disabled /></td><td><input name="sl_CyS" class="sl_CyS slider" type="range" min="0" max="100" value="0" /></td>
+          </tr>
+          <tr>
+            <td>S.h.h:</td><td><input name="Sh" class="Sh number" value="0.00" disabled /></td><td><input name="sl_Sh" class="sl_Sh slider" type="range" min="0" max="500" value="0" /></td>
+            <td>R.o.t:</td><td><input name="Rot" class="Rot number" value="0.00" disabled /></td><td><input name="sl_Rot" class="sl_Rot slider" type="range" min="0" max="18000" value="0" /></td>
+          </tr>
+          <tr>
+            <td>S.c.l:</td><td><input name="Scl" class="Scl number" value="1.00" disabled /></td><td><input name="sl_Scl" class="sl_Scl slider" type="range" min="47" max="800" value="100" /></td>
+            <td>Color:</td><td colspan="2"><input style="width: 100%;" name="sl_Col" type="color" value="#304780" /></td>
+          </tr>
+        </table>
+        <input class='reset' type="button" checked value="Reset" />
+      </div>
+      <br />
+      <canvas id="myCan" width="500px" height="500px" style="border: 2px solid red"></canvas>
     </div>
     <script type="module" src="./main.min.js" ></script>
   </body>

@@ -5,11 +5,59 @@
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="/images/favcgsg.png" type="image/png" />
     <title>CGSG:VG4 CGSG'SummerPractice2024. Platon Bodies rendering</title>
-    <script src = "/libs/hammer/hammer.min.js"></script>
+    <!-- <script src = "/libs/hammer/hammer.min.js"></script> -->
+    <style>
+      .group {
+        vertical-align: top;
+        display: inline-block;
+        /*background-color: #EEFFDD;*/
+
+        border-radius: 5px;
+        padding: 8px;
+        background-color: #DEF;
+        margin: 5px;
+        border-radius: 8px; font-size: 0.8em;
+        font-weight: bold;
+        border: 1px blue solid;
+        /*
+        min-width: 47px;
+        min-height: 30px;
+        background-image: url(https://www.gravatar.com/avatar/FEDA?size=47&default=retro);
+        background-repeat: no-repeat;
+        background-opacity: 0.30;
+        background-position: top right;
+        */
+        box-shadow: inset 10px 10px 30px rgba(0, 0, 0, 0.3),
+              inset 2px 2px 3px rgba(0,0,0,.5),
+              3px 3px 5px rgba(0, 0, 0, 0.4),
+              10px 10px 30px rgba(0, 0, 0, 0.5);
+      }
+      .fpsd, .fps, .pause {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .fps {
+        border: 1px solid blue;
+        border-radius: 5px;
+        padding: 2px;
+        width: 3em;
+        text-align: center;
+        background-color: #EEFFDD;
+      }
+      body {
+        background-image: url(/images/cgsg_cardboard.png);
+      }
+    </style>
     <script src="./main.min.js" ></script>
   </head>
   <body>
+    <a href="/">&#127968;&nbsp;home</a>
     <h3>CGSG:VG4 CGSG'SummerPractice2024. Platon Bodies rendering</h3>
-    <p><textarea id="log" style="vertical-align: middle;"></textarea></p>
+    <div class="group"><p><textarea id="log" style="width: 99.8%; height: 90px; vertical-align: middle;"></textarea></p>
+    <div class='fpsd'><input class='pause' type="checkbox" value="" /> Pause</div>
+    <div class='fpsd'>FPS: <div class="fps">30.0</div></div>
+    Object: <select id="objSelect"></select> :: Material <select id="mtlSelect"></select>
+    <br /><canvas id="myCan" style="width: 100%; height: 75vh; border: 1px Solid Red"></canvas>
+    </div>
   </body>
 </html>
